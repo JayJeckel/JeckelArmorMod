@@ -1,0 +1,37 @@
+
+itemGroup.jeckelarmormod=JeckelArmorMod
+
+item.armor_planks_oak_head.name=Oak Helmet
+item.armor_planks_oak_chest.name=Oak Chestplate
+item.armor_planks_oak_leg.name=Oak Leggings
+item.armor_planks_oak_foot.name=Oak Boots
+
+item.armor_planks_spruce_head.name=Spruce Helmet
+item.armor_planks_spruce_chest.name=Spruce Chestplate
+item.armor_planks_spruce_leg.name=Spruce Leggings
+item.armor_planks_spruce_foot.name=Spruce Boots
+
+item.armor_planks_birch_head.name=Birch Helmet
+item.armor_planks_birch_chest.name=Birch Chestplate
+item.armor_planks_birch_leg.name=Birch Leggings
+item.armor_planks_birch_foot.name=Birch Boots
+
+item.armor_planks_jungle_head.name=Jungle Helmet
+item.armor_planks_jungle_chest.name=Jungle Chestplate
+item.armor_planks_jungle_leg.name=Jungle Leggings
+item.armor_planks_jungle_foot.name=Jungle Boots
+
+item.armor_planks_acacia_head.name=Acacia Helmet
+item.armor_planks_acacia_chest.name=Acacia Chestplate
+item.armor_planks_acacia_leg.name=Acacia Leggings
+item.armor_planks_acacia_foot.name=Acacia Boots
+
+item.armor_planks_dark_oak_head.name=Dark Oak Helmet
+item.armor_planks_dark_oak_chest.name=Dark Oak Chestplate
+item.armor_planks_dark_oak_leg.name=Dark Oak Leggings
+item.armor_planks_dark_oak_foot.name=Dark Oak Boots
+
+item.armor_rock_stone_head.name=Stone Helmet
+item.armor_rock_stone_chest.name=Stone Chestplate
+item.armor_rock_stone_leg.name=Stone Leggings
+item.armor_rock_stone_foot.name=Stone Boots

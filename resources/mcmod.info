@@ -1,0 +1,25 @@
+{
+	"modListVersion": 2,
+	"modList":
+	[
+		{
+			"modid": "jeckelarmormod",
+			"name": "JeckelArmorMod",
+			"description": "JeckelArmorMod provides a few new sets of armor, specifically a set for each vanilla wood type and another one for stone.",
+			"version": "${version}",
+			"mcversion": "${mcversion}",
+			"forgeversion": "${forgeversion}",
+			"url": "http://minecraft.jeckelland.site88.net/mods/${name}/",
+			"updateUrl": "",
+			"authorList": ["JayJeckel"],
+			"credits": "",
+			"logoFile": "banner.png",
+			"screenshots": [],
+			"parent": "",
+			"requiredMods": [ "Forge" ],
+			"dependencies": [ "cfm" ],
+			"dependants": [],
+			"useDependencyInformation": true
+		}
+	]
+}
