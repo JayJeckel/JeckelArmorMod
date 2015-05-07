@@ -1,13 +1,21 @@
 package jeckelarmormod.content;
 
+import java.util.Random;
+
 import jeckelarmormod.core.Refs;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.village.MerchantRecipe;
+import net.minecraft.village.MerchantRecipeList;
 import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.VillagerRegistry;
+import cpw.mods.fml.common.registry.VillagerRegistry.IVillageTradeHandler;
 
 public class ContentManager
 {
@@ -43,6 +51,11 @@ public class ContentManager
 		{ armor_rock[index].registerRecipes(new ItemStack(Blocks.stone)); }
 
 		GameRegistry.registerFuelHandler(new ContentManager.FuelHandler());
+
+		for (EnumVillagers profession : EnumVillagers.values())
+		{
+			VillagerRegistry.instance().registerVillageTradeHandler(profession.ordinal(), new TradeHandler());
+		}
 	}
 
 	public void post()
@@ -56,6 +69,36 @@ public class ContentManager
 			if (fuel.getItem() instanceof ItemArmor && ((ItemArmor)fuel.getItem()).getArmorMaterial() == ArmorMaterialWood)
 			{ return 300; }
 			return 0;
+		}
+	}
+
+	public enum EnumVillagers
+	{
+		Farmer,
+		Librarian,
+		Priest,
+		Blacksmith,
+		Butcher
+	}
+
+	public class TradeHandler implements IVillageTradeHandler
+	{
+		@SuppressWarnings("unchecked")
+		@Override public void manipulateTradesForVillager(final EntityVillager villager, final MerchantRecipeList list, final Random random)
+		{
+			final int count = woods.length + rocks.length;
+			final int rand = random.nextInt(count);
+
+			final ContentData data = (rand < woods.length ? armor_wood[rand] : armor_rock[rand - count]);
+
+			final int type = random.nextInt(4);
+			switch (type)
+			{
+				case 0: { list.add(new MerchantRecipe(new ItemStack(Items.gold_nugget, 1), new ItemStack(data.head))); }
+				case 1: { list.add(new MerchantRecipe(new ItemStack(Items.gold_nugget, 4), new ItemStack(data.chest))); }
+				case 2: { list.add(new MerchantRecipe(new ItemStack(Items.gold_nugget, 3), new ItemStack(data.leg))); }
+				case 3: { list.add(new MerchantRecipe(new ItemStack(Items.gold_nugget, 2), new ItemStack(data.foot))); }
+			}
 		}
 	}
 }
