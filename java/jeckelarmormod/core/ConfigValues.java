@@ -17,6 +17,11 @@ public class ConfigValues extends ConfigHandlerValues
 			"Control automatic update checking.\n.Setting this option to false will disable version checking.",
 			true);
 
+	public boolean isVillagerTradesEnabled() { return this._villagerTrades.getValue(); }
+	protected final ConfigValueBoolean _villagerTrades = new ConfigValueBoolean("EnableVillagerTrades", Configuration.CATEGORY_GENERAL,
+			"Allow the mod armors to be included in villager trades.",
+			true);
+
 	@Override public void update(final Configuration config)
 	{
 		super.update(config);

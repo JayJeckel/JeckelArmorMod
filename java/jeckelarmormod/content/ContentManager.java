@@ -52,9 +52,12 @@ public class ContentManager
 
 		GameRegistry.registerFuelHandler(new ContentManager.FuelHandler());
 
-		for (EnumVillagers profession : EnumVillagers.values())
+		if (Refs.getConfigValues().isVillagerTradesEnabled())
 		{
-			VillagerRegistry.instance().registerVillageTradeHandler(profession.ordinal(), new TradeHandler());
+			for (EnumVillagers profession : EnumVillagers.values())
+			{
+				VillagerRegistry.instance().registerVillageTradeHandler(profession.ordinal(), new TradeHandler());
+			}
 		}
 	}
 
