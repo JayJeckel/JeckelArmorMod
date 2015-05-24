@@ -10,6 +10,9 @@ public class ConfigValues extends ConfigHandlerValues
 	public ConfigValues()
 	{
 		this.add(this._updateChecking);
+		this.add(this._villagerTrades);
+		this.add(this._woodArmorEncumbrance);
+		this.add(this._rockArmorEncumbrance);
 	}
 
 	public boolean isUpdateCheckingEnabled() { return this._updateChecking.getValue(); }
@@ -21,6 +24,16 @@ public class ConfigValues extends ConfigHandlerValues
 	protected final ConfigValueBoolean _villagerTrades = new ConfigValueBoolean("EnableVillagerTrades", Configuration.CATEGORY_GENERAL,
 			"Allow the mod armors to be included in villager trades.",
 			true);
+
+	public boolean isWoodArmorEncumbranceEnabled() { return this._woodArmorEncumbrance.getValue(); }
+	protected final ConfigValueBoolean _woodArmorEncumbrance = new ConfigValueBoolean("EnableEncumbranceWoodArmor", Configuration.CATEGORY_GENERAL,
+			"When enabled, movement speed will be decreased while wearing wood armor.",
+			false);
+
+	public boolean isRockArmorEncumbranceEnabled() { return this._rockArmorEncumbrance.getValue(); }
+	protected final ConfigValueBoolean _rockArmorEncumbrance = new ConfigValueBoolean("EnableEncumbranceRockArmor", Configuration.CATEGORY_GENERAL,
+			"When enabled, movement speed will be decreased while wearing rock armor.",
+			false);
 
 	@Override public void update(final Configuration config)
 	{

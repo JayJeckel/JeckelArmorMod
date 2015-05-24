@@ -2,13 +2,17 @@ package jeckelarmormod.content;
 
 import java.util.Random;
 
+import jeckelarmormod.common.CustomPotion;
+import jeckelarmormod.common.PotionUtil;
 import jeckelarmormod.core.Refs;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraftforge.common.util.EnumHelper;
@@ -19,10 +23,12 @@ import cpw.mods.fml.common.registry.VillagerRegistry.IVillageTradeHandler;
 
 public class ContentManager
 {
+	public static Potion potionEncumbranceArmor;
+
 	public static final ArmorMaterial ArmorMaterialWood = EnumHelper.addArmorMaterial("WOOD",
 			10, new int[] {1, 4, 3, 1}, 10);
 
-	public static final ArmorMaterial ArmorMaterialStone = EnumHelper.addArmorMaterial("STONE",
+	public static final ArmorMaterial ArmorMaterialRock = EnumHelper.addArmorMaterial("STONE",
 			15, new int[] {2, 4, 4, 2}, 8);
 
 	public static final String[] woods = new String[] { "oak", "spruce", "birch", "jungle", "acacia", "dark_oak" };
@@ -33,11 +39,19 @@ public class ContentManager
 
 	public void pre()
 	{
+		if (Refs.getConfigValues().isWoodArmorEncumbranceEnabled() || Refs.getConfigValues().isRockArmorEncumbranceEnabled())
+		{
+			PotionUtil.extendPotionsArray(1);
+
+			potionEncumbranceArmor = new CustomPotion(PotionUtil.getNextID(), "potion.encumbrance.armor", true, 0);
+			potionEncumbranceArmor.func_111184_a(SharedMonsterAttributes.movementSpeed, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.05000000596046448D, 2);
+		}
+
 		for (int index = 0; index < woods.length; index++)
 		{ armor_wood[index] = ContentData.create("armor_planks_" + woods[index], ArmorMaterialWood, new ItemStack(Blocks.planks, 1, index)); }
 
 		for (int index = 0; index < rocks.length; index++)
-		{ armor_rock[index] = ContentData.create("armor_rock_" + rocks[index], ArmorMaterialStone, new ItemStack(Blocks.stone)); }
+		{ armor_rock[index] = ContentData.create("armor_rock_" + rocks[index], ArmorMaterialRock, new ItemStack(Blocks.stone)); }
 
 		Refs.getTab().setIconItemStack(new ItemStack(armor_wood[0].head));
 	}

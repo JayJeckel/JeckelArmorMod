@@ -1,6 +1,8 @@
 
 itemGroup.jeckelarmormod=JeckelArmorMod
 
+potion.encumbrance.armor=Armor Encumb
+
 item.armor_planks_oak_head.name=Oak Helmet
 item.armor_planks_oak_chest.name=Oak Chestplate
 item.armor_planks_oak_leg.name=Oak Leggings
