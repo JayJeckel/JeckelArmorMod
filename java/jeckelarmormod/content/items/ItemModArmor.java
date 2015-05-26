@@ -49,7 +49,7 @@ public class ItemModArmor extends ItemArmor
 			{
 				final int count = getArmorCount(player, ContentManager.ArmorMaterialWood);
 				total += count;
-				if (count > 1) { amplifier += count - 1; }
+				amplifier += count / 2;
 			}
 			if (Refs.getConfigValues().isRockArmorEncumbranceEnabled())
 			{
