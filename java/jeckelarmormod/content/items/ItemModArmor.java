@@ -38,6 +38,7 @@ public class ItemModArmor extends ItemArmor
 	@Override public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
 	{
 		if (ContentManager.potionEncumbranceArmor == null) { return; }
+		if (player.capabilities.isCreativeMode) { return; }
 		if (Refs.getConfigValues().isWoodArmorEncumbranceEnabled() || Refs.getConfigValues().isRockArmorEncumbranceEnabled())
 		{
 			final boolean ambient = false;
