@@ -26,14 +26,18 @@ public class ConfigValues extends ConfigHandlerValues
 			true);
 
 	public boolean isWoodArmorEncumbranceEnabled() { return this._woodArmorEncumbrance.getValue(); }
-	protected final ConfigValueBoolean _woodArmorEncumbrance = new ConfigValueBoolean("EnableEncumbranceWoodArmor", Configuration.CATEGORY_GENERAL,
+	protected final ConfigValueBoolean _woodArmorEncumbrance = new ConfigValueBoolean("ArmorEncumbranceWoodEnable", Configuration.CATEGORY_GENERAL,
 			"When enabled, movement speed will be decreased while wearing wood armor.",
 			false);
 
 	public boolean isRockArmorEncumbranceEnabled() { return this._rockArmorEncumbrance.getValue(); }
-	protected final ConfigValueBoolean _rockArmorEncumbrance = new ConfigValueBoolean("EnableEncumbranceRockArmor", Configuration.CATEGORY_GENERAL,
+	protected final ConfigValueBoolean _rockArmorEncumbrance = new ConfigValueBoolean("ArmorEncumbranceRockEnable", Configuration.CATEGORY_GENERAL,
 			"When enabled, movement speed will be decreased while wearing rock armor.",
 			false);
+
+	public float getArmorEncumbranceValue() { return this._armorEncumbranceValue.getValue(); }
+	protected final ConfigValueFloat _armorEncumbranceValue = new ConfigValueFloat("ArmorEncumbranceValue", Configuration.CATEGORY_GENERAL,
+			"This value sets the percentage that each level of the Armor Encumbrance enchantment reduces player movement speed by.", 0.05f, 0.0f, 1.0f);
 
 	@Override public void update(final Configuration config)
 	{
