@@ -42,6 +42,7 @@ public class ContentManager
 		{
 			PotionUtil.extendPotionsArray(1);
 
+			final double duration = -Refs.getConfigValues().getArmorEncumbranceValue();//-0.05000000596046448D;
 			potionEncumbranceArmor = new CustomPotion(PotionUtil.getNextID(), "potion.encumbrance.armor", true, 0).setResourceLocation(Refs.ModId, "potions").setIconIndex(0, 0);
 			potionEncumbranceArmor.func_111184_a(SharedMonsterAttributes.movementSpeed, "7107DE5E-7CE8-4030-940E-514C1F160890", duration, 2);
 		}
